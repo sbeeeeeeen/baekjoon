@@ -3,6 +3,9 @@ package step;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.StringTokenizer;
 
 /**
@@ -43,6 +46,35 @@ public class Conditionals {
         }
 
         System.out.println(hh + " " + mi);
+    }
+
+    /**
+     * methodName : dices
+     * author : sbyim
+     * description : 2480
+     * date : 2022/11/08
+     *
+     * @throws IOException the io exception
+     */
+    public void dices() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        Integer[] dices = {Integer.parseInt(st.nextToken()),
+                Integer.parseInt(st.nextToken()),
+                Integer.parseInt(st.nextToken())};
+        Arrays.sort(dices, Collections.reverseOrder());
+
+        Integer[] resultArr = Arrays.stream(dices).distinct().toArray(Integer[]::new);
+        int result = 0;
+        if (resultArr.length == 1) result = 10000 + resultArr[0] * 1000;
+        else if (resultArr.length == 2) {
+            int cnt = Collections.frequency(List.of(dices), resultArr[0]);
+            if (cnt == 2) result = 1000 + resultArr[0] * 100;
+            else result = 1000 + resultArr[1] * 100;
+        } else result = resultArr[0] * 100;
+
+
+        System.out.println(result);
     }
 }
 
