@@ -2,6 +2,8 @@ package step;
 
 import java.io.*;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.regex.Pattern;
 
 /**
@@ -103,5 +105,57 @@ public class Strings {
 
         bw.flush();
     }
+
+    /**
+     * methodName : wordStudy
+     * author : sbyim
+     * description : 1157 단어공부
+     * 알파벳 대소문자로 된 단어가 주어지면,
+     * 이 단어에서 가장 많이 사용된 알파벳이 무엇인지 알아내는 프로그램을 작성하시오.
+     * 단, 대문자와 소문자를 구분하지 않는다.
+     * 가장 많이 사용된 알파벳이 여러 개 존재하는 경우에는 ?를 출력한다.
+     */
+    public void wordStudy() throws IOException{
+        //예제 Mississipi 출력 ?
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        //이것도 맞긴한데 메모리 너무많이씀 시간도 오래걸리고...
+//        String[] param = br.readLine().toUpperCase().split("");
+//        String[] paramDist = Arrays.stream(param).distinct().toArray(String[]::new); //중복제거
+//        String maxChar = "";
+//        int maxCnt = 0;
+//        for (int i=0; i<paramDist.length; i++) {
+//            int cnt = Collections.frequency(List.of(param), paramDist[i]);
+//            if (!maxChar.equals(paramDist[i]) && maxCnt < cnt) { //더 많은거 발견할경우
+//                maxChar = paramDist[i];
+//                maxCnt = cnt;
+//            } else if (!maxChar.equals(paramDist[i]) && maxCnt == cnt) { //max가 여러개일경우
+//                maxChar = "?";
+//                maxCnt = cnt;
+//            }
+//        }
+        String param = br.readLine().toUpperCase();
+        int[] arr = new int[26];
+
+        for (int i=0; i<param.length(); i++) {
+            int chr = param.charAt(i) - (int)'A';
+            arr[chr] = ++arr[chr];
+        }
+
+        String maxChar = "";
+        int maxCnt = 0;
+        for (int j=0; j<arr.length; j++) {
+            if (arr[j] > maxCnt) {
+                maxChar = Character.toString(j + (int)'A');
+                maxCnt = arr[j];
+            } else if (arr[j] == maxCnt)
+                maxChar = "?";
+        }
+
+        bw.write(maxChar + "\n");
+        bw.flush();
+    }
+
 
 }
