@@ -157,5 +157,109 @@ public class Strings {
         bw.flush();
     }
 
+    /**
+     * methodName : wordCnt
+     * author : sbyim
+     * description : 1152 단어의 개수
+     *
+     * @throws IOException the io exception
+     */
+    public void wordCnt() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int result = 0;
+        String param = br.readLine();
+        if (!param.isBlank()) {
+            result = param.trim().toUpperCase().split("\\s+").length;
+        }
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        bw.write(result + "\n");
+        bw.flush();
+    }
+
+    /**
+     * methodName : reverse
+     * author : sbyim
+     * description : 2908 상수
+     *
+     * @throws IOException the io exception
+     */
+    public void reverse() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        String param[] = br.readLine().split("\\s");
+        int sb1 = Integer.parseInt(new StringBuffer(param[0]).reverse().toString());
+        int sb2 = Integer.parseInt(new StringBuffer(param[1]).reverse().toString());
+
+        int result = sb1;
+        if (sb1 < sb2) result = sb2;
+        bw.write(result + "\n");
+        bw.flush();
+    }
+
+    /**
+     * methodName : dial
+     * author : sbyim
+     * description : 5622 다이얼
+     *
+     * @throws IOException the io exception
+     */
+    public void dial() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        String[] params = br.readLine().split("");
+        int result = 0;
+        for (String param : params) {
+            int temp = param.charAt(0) - (int) 'A';
+            if (temp > 17) temp--;
+            temp = temp/3 + 3;
+            if ("Z".equals(param)) temp--;
+            result += temp;
+        }
+
+        bw.write(result + "\n");
+        bw.flush();
+    }
+
+    /**
+     * methodName : croatia
+     * author : sbyim
+     * description : 2941 크로아티아 알파벳
+     *
+     * @throws IOException the io exception
+     */
+    public void croatia() throws IOException {
+//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+//        String[] params = br.readLine().split("");
+//        int result = 0;
+//        for (int i=1; i<params.length; i++) {
+//            String temp = params[i];
+//
+//            if ("=".equals(params[i-1])) continue; // =n 이렇게 시작하면 꼬임
+//            if (i < params.length-1) {
+//                temp += params[i-1];
+//                if (i+1 < params.length-1 && "dz".equals(temp))  { //dz=만 세글자라..
+//                    temp += params[i+1];
+//                }
+//            }
+//
+//            if ("lj".equals(temp) || "nj".equals(temp) || "dz=".equals(temp)) {
+//                result += 1;
+//                i = i+temp.length()-1;
+//            } else {
+//                int tmp = temp.replaceAll("[^a-zA-Z]", "").length();
+//                result += tmp;
+//                ++i;
+//            }
+//
+//            bw.write("temp = " + temp + ", i = " + i + ", result = " + result + "\n");
+//        }
+//
+//        bw.write(result + "\n");
+//        bw.flush();
+    }
+
 
 }
