@@ -47,20 +47,22 @@ public class BasicMath1 {
      * @throws IOException the io exception
      */
     public void honeycomb() throws IOException {
-//        int a = 1;
-//        int cnt = 1;
-//
-//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-//        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-//        int param = Integer.parseInt(br.readLine());
-//        while(true) {
-//            if (a >= param) {
-//                bw.write(cnt + "\n");
-//                break;
-//            } else if (a==1) a += 1;
-//            else a += 6*cnt++;
-//        }
-//
-//        bw.flush();
+        long range = 1;
+        long cnt = 1;
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        int param = Integer.parseInt(br.readLine());
+        while(range < param) {
+            range += 6*cnt++;
+            bw.write(range + "\n");
+        }
+
+        bw.write(cnt + "\n");
+        bw.flush();
     }
+
+
+
+
 }
