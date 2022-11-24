@@ -62,7 +62,42 @@ public class BasicMath1 {
         bw.flush();
     }
 
+    /**
+     * methodName : findFra
+     * author : sbyim
+     * description : 1193 분수찾기
+     *
+     * @throws IOException the io exception
+     */
+    public void findFra() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        int param = Integer.parseInt(br.readLine());
+        int cnt = 0;
+        int tmp = 0;
+        int add = 0;
+        int bef = 0;
+        boolean b = true;
+        while(true) {
+            if (cnt%2 == 1 || cnt==0) tmp += 1;
+            else if (cnt%2 == 0){
+                add += 4;
+                tmp += add;
+            }
+            cnt++;
+            if (cnt%2 == 1 && ((bef < param && param < tmp) || tmp==param)) break;
+            else if (cnt%2 == 0 && (param-tmp < cnt || tmp==param)) break;
 
+            bef = tmp;
+        }
+
+        if (cnt%2 == 1)
+            bw.write((tmp-param+1) + "/" + (cnt-(tmp-param)) + "\n");
+        else
+            bw.write((param-tmp+1) + "/" + (cnt-(param-tmp)) + "\n");
+
+        bw.flush();
+    }
 
 
 }
