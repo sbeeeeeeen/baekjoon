@@ -99,5 +99,111 @@ public class BasicMath1 {
         bw.flush();
     }
 
+    /**
+     * methodName : snail
+     * author : sbyim
+     * description : 2869 달팽이는 올라가고싶다
+     *
+     * @throws IOException the io exception
+     */
+    public void snail() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        //시간초과
+//        String[] params = br.readLine().split("\\s");
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int day = Integer.parseInt(st.nextToken());
+        int night = Integer.parseInt(st.nextToken());
+        int height = Integer.parseInt(st.nextToken());
+
+        long result = 0;
+//        시간초과
+//        long n = 0;
+//        while (result < height) {
+//            n++;
+//            result = n * (day - night) + night;
+//        }
+
+        result = (height-night)/(day-night);
+        if ((height-night)%(day-night) > 0) result += 1;
+
+        bw.write( result + "\n");
+        bw.flush();
+    }
+
+    /**
+     * methodName : acm
+     * author : sbyim
+     * description : 10250 ACM호텔
+     *
+     * @throws IOException the io exception
+     */
+    public void acm() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringTokenizer st;
+
+        int testcase = Integer.parseInt(br.readLine());
+        for (int i=0; i<testcase; i++) {
+            st = new StringTokenizer(br.readLine());
+            int height = Integer.parseInt(st.nextToken());
+            int room = Integer.parseInt(st.nextToken());
+            int guest = Integer.parseInt(st.nextToken());
+            int floor = guest%height;
+            if (floor==0) floor = height;
+            int unit = guest/height;
+            if (guest%height > 0) unit++;
+            bw.write( String.format("%d%02d\n", floor, unit));
+        }
+        bw.flush();
+    }
+
+    /**
+     * methodName : apartment
+     * author : sbyim
+     * description : 2775 부녀회장이 될테야
+     *
+     * @throws IOException the io exception
+     */
+    public void apartment() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        int testcase = Integer.parseInt(br.readLine());
+
+        for (int i=0; i<testcase; i++) {
+            int floor = Integer.parseInt(br.readLine());
+            int number = Integer.parseInt(br.readLine());
+            int[][] numbers = new int[floor+1][number];
+            for (int j=0; j<floor+1; j++) {
+                int tmp = 0;
+                for (int k=0; k<number; k++) {
+                    if (j == 0) numbers[j][k] = k+1;
+                    else if (k==0) numbers[j][k] = 1;
+                    else numbers[j][k] = numbers[j][k-1] + numbers[j-1][k];
+                }
+            }
+            bw.write( numbers[floor][number-1] + "\n");
+        }
+
+        bw.flush();
+    }
+
+    /**
+     * methodName : sugar
+     * author : sbyim
+     * description : 2839 설탕배달
+     *
+     * @throws IOException the io exception
+     */
+    public void sugar() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        int cnt = Integer.parseInt(br.readLine());
+
+    }
+
+
 
 }
