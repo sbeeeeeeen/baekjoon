@@ -1,6 +1,7 @@
 package step;
 
 import java.io.*;
+import java.math.BigInteger;
 import java.util.StringTokenizer;
 
 /**
@@ -201,7 +202,31 @@ public class BasicMath1 {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int cnt = Integer.parseInt(br.readLine());
+        int result = 0;
+        if (cnt%5 == 0) result = cnt/5;
+        else if (cnt == 4 || cnt == 7) result = -1;
+        else if (cnt%5 == 1 || cnt%5 == 3) result = (cnt/5) + 1;
+        else if (cnt%5 == 2 || cnt%5 == 4) result = (cnt/5) + 2;
 
+        bw.write(result + "\n");
+        bw.flush();
+    }
+
+    /**
+     * methodName : bigNum
+     * author : sbyim
+     * description : 10757 큰 수 A+B
+     *
+     * @throws IOException the io exception
+     */
+    public void bigNum() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        BigInteger bi1 = new BigInteger(st.nextToken());
+        BigInteger bi2 = new BigInteger(st.nextToken());
+        bw.write(bi1.add(bi2) + "\n");
+        bw.flush();
     }
 
 
