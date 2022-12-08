@@ -1,11 +1,11 @@
-package step;
+package backjoon.step;
 
 import java.io.*;
 import java.math.BigInteger;
 import java.util.StringTokenizer;
 
 /**
- * packageName    : step
+ * packageName    : backjoon.step
  * fileName       : BasicMath1
  * author         : sbyim
  * date           : 2022/11/21

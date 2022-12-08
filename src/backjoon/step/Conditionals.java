@@ -1,4 +1,4 @@
-package step;
+package backjoon.step;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 /**
- * packageName    : step
+ * packageName    : backjoon.step
  * fileName       : Conditionals
  * author         : sbyim
  * date           : 2022/11/08

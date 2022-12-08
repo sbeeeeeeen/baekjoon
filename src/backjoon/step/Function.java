@@ -1,9 +1,7 @@
-package step;
-
-import java.util.Arrays;
+package backjoon.step;
 
 /**
- * packageName    : step
+ * packageName    : backjoon.step
  * fileName       : Function
  * author         : sbyim
  * date           : 2022/11/14

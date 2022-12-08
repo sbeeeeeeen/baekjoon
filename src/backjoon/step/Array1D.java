@@ -1,4 +1,4 @@
-package step;
+package backjoon.step;
 
 import java.io.*;
 import java.util.Arrays;
@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
- * packageName    : step
+ * packageName    : backjoon.step
  * fileName       : Array1D
  * author         : sbyim
  * date           : 2022/11/14

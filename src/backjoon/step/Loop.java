@@ -1,10 +1,10 @@
-package step;
+package backjoon.step;
 
 import java.io.*;
 import java.util.StringTokenizer;
 
 /**
- * packageName    : step
+ * packageName    : backjoon.step
  * fileName       : Loop
  * author         : sbyim
  * date           : 2022/11/14

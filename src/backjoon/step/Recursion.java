@@ -1,9 +1,9 @@
-package step;
+package backjoon.step;
 
 import java.io.*;
 
 /**
- * packageName    : step
+ * packageName    : backjoon.step
  * fileName       : Recursion
  * author         : sbyim
  * date           : 2022/12/03
