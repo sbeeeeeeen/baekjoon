@@ -16,9 +16,20 @@ import java.util.Arrays;
 public class Babbling {
 
     public static void main(String[] args) {
-        String[] babbling = {"aya", "yee", "u", "maa", "wyeoo"};
-        int result = solution(babbling);
-        System.out.println(result);
+//        String[] babbling = {"aya", "yee", "u", "maa", "wyeoo"};
+//        int result = solution(babbling);
+//        System.out.println(result);
+
+        int n = 100;
+        int answer = 0;
+        while(n > 9) {
+            answer += n%10;
+            n /= 10;
+        }
+
+        answer += n;
+
+        System.out.println("Babbling.main" + answer);
     }
 
     public static int solution(String[] babbling) {
