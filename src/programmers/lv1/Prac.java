@@ -20,7 +20,10 @@ public class Prac {
 //        poketmon(new int[]{3,3,3,2,2,4});
 //        System.out.println(hamburger(new int[]{1,2,1,2,3,1,3,1,2,3,1,2,3,1}));
 //        System.out.println(fruit(4, 3, new int[]{4, 1, 2, 2, 4, 4, 4, 4, 1, 2, 4, 2}));
-        System.out.println(cola(2, 1, 20));
+//        System.out.println(cola(2, 1, 20));
+//        System.out.println(foodFight(new int[]{1, 7, 1, 2}));
+//        System.out.println(threeMusketeers(new int[]{-3, -2, -1, 0, 1, 2, 3}));
+        System.out.println(numPair("100", "123450"));
     }
 
 
@@ -162,5 +165,75 @@ public class Prac {
             n = cola + (n%a);
         }
         return result;
+    }
+
+    /**
+     * methodName : foodFight
+     * author : sbyim
+     * description : 푸드 파이트 대회
+     *
+     * @param food
+     * @return string
+     */
+    public static String foodFight(int[] food) {
+        String answer = "0";
+        for (int i=food.length-1; i>0; i--) {
+            if (food[i]%2==1) food[i] = food[i]-1; //홀수면 한개 제거
+            for (int j=0; j<food[i]/2; j++) {
+                answer += i;
+                answer = i + answer;
+            }
+        }
+        return answer;
+    }
+
+    /**
+     * methodName : threeMusketeers
+     * author : sbyim
+     * description : 삼총사
+     *
+     * @param number
+     * @return int
+     */
+    public static int threeMusketeers(int[] number) {
+        int answer = 0;
+        for(int i=0; i<number.length; i++) {
+            for(int j=i+1; j<number.length; j++) {
+                for(int k=j+1; k<number.length; k++) {
+                    if(number[i] + number[j] + number[k] == 0) answer++;
+                }
+            }
+        }
+        return answer;
+    }
+
+    /**
+     * methodName : numPair
+     * author : sbyim
+     * description : 숫자짝꿍
+     *
+     * @param X
+     * @param Y
+     * @return string
+     */
+    public static String numPair(String X, String Y) { // 런타임 에러
+        int[][] nums = new int[2][10];
+        for (int i=0; i<X.length(); i++)
+            nums[0][X.charAt(i) - '0'] = nums[0][X.charAt(i) - '0']+1;
+        for (int i=0; i<Y.length(); i++)
+            nums[1][Y.charAt(i) - '0'] = nums[1][Y.charAt(i) - '0']+1;
+        StringBuilder sb = new StringBuilder();
+
+        for(int i=9; i>=0; i--) {
+            if(nums[0][i] > 0) {
+                int tmp = Math.min(nums[0][i], nums[1][i]);
+                for(int j=0; j<tmp; j++)
+                    sb.append(i);
+            }
+        }
+        String answer = "";
+        if(sb.length() == 0) answer = "-1";
+        else answer = String.valueOf(Long.parseLong(sb.toString()));
+        return answer;
     }
 }
