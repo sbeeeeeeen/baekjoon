@@ -216,7 +216,7 @@ public class Prac {
      * @param Y
      * @return string
      */
-    public static String numPair(String X, String Y) { // 런타임 에러
+    public static String numPair(String X, String Y) {
         int[][] nums = new int[2][10];
         for (int i=0; i<X.length(); i++)
             nums[0][X.charAt(i) - '0'] = nums[0][X.charAt(i) - '0']+1;
@@ -233,7 +233,8 @@ public class Prac {
         }
         String answer = "";
         if(sb.length() == 0) answer = "-1";
-        else answer = String.valueOf(Long.parseLong(sb.toString()));
+        else if(sb.charAt(0) == '0') answer = "0";
+        else answer = sb.toString();
         return answer;
     }
 }
