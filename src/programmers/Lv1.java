@@ -1,11 +1,13 @@
-package programmers.lv1;
+package programmers;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Stack;
 
 /**
- * packageName    : programmers.lv1
- * fileName       : Prac
+ * packageName    : programmers
+ * fileName       : Lv1
  * author         : sbyim
  * date           : 2022/12/09
  * description    :
@@ -14,7 +16,12 @@ import java.util.Stack;
  * -----------------------------------------------------------
  * 2022/12/09        sbyim       최초 생성
  */
-public class Prac {
+public class Lv1 {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
 //        boolean b = solution("Pyy");
 //        poketmon(new int[]{3,3,3,2,2,4});
@@ -23,7 +30,8 @@ public class Prac {
 //        System.out.println(cola(2, 1, 20));
 //        System.out.println(foodFight(new int[]{1, 7, 1, 2}));
 //        System.out.println(threeMusketeers(new int[]{-3, -2, -1, 0, 1, 2, 3}));
-        System.out.println(numPair("100", "123450"));
+//        System.out.println(numPair("100", "123450"));
+        System.out.println(clawMachine(new int[][]{{0,0,0,0,0},{0,0,1,0,3},{0,2,5,0,1},{4,2,4,4,2},{3,5,1,3,1}}, new int[]{1,5,3,5,1,2,1,4}));
     }
 
 
@@ -111,8 +119,8 @@ public class Prac {
      * author : sbyim
      * description : 과일장수
      *
-     * @param k 최대값
-     * @param m 박스의 과일 개수
+     * @param k     최대값
+     * @param m     박스의 과일 개수
      * @param score
      * @return int
      */
@@ -236,5 +244,34 @@ public class Prac {
         else if(sb.charAt(0) == '0') answer = "0";
         else answer = sb.toString();
         return answer;
+    }
+
+    /**
+     * methodName : clawMachine
+     * author : sbyim
+     * description : 크레인 인형뽑기 게임
+     *
+     * @param board
+     * @param moves
+     * @return int
+     */
+    private static int clawMachine(int[][] board, int[] moves) {
+        Stack<Integer> s = new Stack<>();
+        s.push(0);
+        int result = 0;
+        for(int move : moves) {
+            move -= 1;
+            for(int i=0; i<board.length; i++) {
+                if(board[i][move] != 0) {
+                    if (s.peek() == board[i][move]) {
+                        s.pop();
+                        result += 2;
+                    } else {s.push(board[i][move]);}
+                    board[i][move] = 0;
+                    break;
+                }
+            }
+        }
+        return result;
     }
 }

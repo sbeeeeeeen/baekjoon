@@ -1,10 +1,8 @@
-package programmers.lv0;
-
-import java.util.Arrays;
+package programmers;
 
 /**
- * packageName    : programmers.lv0
- * fileName       : Babbling
+ * packageName    : programmers
+ * fileName       : Lv0
  * author         : sbyim
  * date           : 2022/12/07
  * description    :
@@ -13,7 +11,7 @@ import java.util.Arrays;
  * -----------------------------------------------------------
  * 2022/12/07        sbyim       최초 생성
  */
-public class Babbling {
+public class Lv0 {
 
     public static void main(String[] args) {
 //        String[] babbling = {"aya", "yee", "u", "maa", "wyeoo"};
